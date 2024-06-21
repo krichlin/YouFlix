@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { Switch, Route } from "react-router-dom";
 import ShowCard from "./ShowCard";
-import Shows from "./ShowList";
+// import Shows from "./ShowList";
 import './ShowList.css';
 
 function ShowsPage({Shows, search}) {

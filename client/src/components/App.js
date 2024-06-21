@@ -3,9 +3,9 @@ import { Switch, Route, BrowserRouter} from "react-router-dom";
 import Kids from "./KidsPage";
 import MyList from "./MyList";
 import Movies from "./MoviesPage";
-import Shows from "./ShowPage";
+// import Shows from "./ShowPage";
 import ShowList from "./ShowList";
-import Nav from "./NavBar";
+// import Nav from "./NavBar";
 import ShowDetailPage from "./ShowDetailPage";
 import Header from "./Header";
 import Search from "./Search";
@@ -15,6 +15,8 @@ import Login from "./Login";
 function App() {
   const [showsData, setShowsData] = useState([]);
   const [search, setSearch] = useState("");
+   
+  setShowsData = setShowsData
 
   function handleSearch(searchValue) {
     setSearch(searchValue);
