@@ -16,7 +16,7 @@ function App() {
   const [showsData, setShowsData] = useState([]);
   const [search, setSearch] = useState("");
    
-  setShowsData = setShowsData
+  usethis = setShowsData + 1
 
   function handleSearch(searchValue) {
     setSearch(searchValue);
