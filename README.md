@@ -14,6 +14,8 @@
 - Start the server by typing `python server/app.py` (change this after deployment)
 - In a new terminal window, type `npm install --prefix client` to initialize the front.
 - You can then Run YouFlix by typing `npm start --prefix client`
+- For deployment purposes only, don't forget to run `pip install python-dotenv` to set up the enviornment.
+- Don't forget to `import validators`
 
 ## Let's Watch YouFlix!
 

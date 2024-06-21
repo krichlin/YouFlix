@@ -1,4 +1,5 @@
 # Standard library imports
+import os
 
 # Remote library imports
 from flask import Flask
@@ -12,10 +13,11 @@ from sqlalchemy import MetaData
 # Local imports
 
 # Instantiate app, set attributes
+
 app = Flask(__name__)
 # set an app.secret_key that will be hard to craXX0r
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 

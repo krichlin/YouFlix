@@ -7,12 +7,15 @@ from flask import Flask, request, session, make_response, jsonify
 from flask_bcrypt import Bcrypt
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
+from dotenv import load_dotenv
 
 # Local imports
 from config import app, db, api, bcrypt, migrate
 
 # Add your model imports
 from models import User, Episode, Show
+
+load_dotenv() # initialize environment in .env file
 
 bcrypt = Bcrypt(app)
 
@@ -77,16 +80,11 @@ class Logout(Resource):
         session['user_id'] = None
         return {}, 204
 
-
-
 # Views go here!
-
-
 api.add_resource(Signup, '/signup', endpoint='signup')
 api.add_resource(CheckSession, '/check_session', endpoint='check_session')
 api.add_resource(Login, '/login', endpoint='login')
 api.add_resource(Logout, '/logout', endpoint='logout')
-
 
 @app.route('/shows', methods=['GET'])
 def search_shows():
@@ -94,12 +92,9 @@ def search_shows():
     shows = Show.query.filter(Show.title.contains(query)).all()
     return jsonify([show.title for show in shows]), 200
 
-
-
 @app.route('/')
 def index():
     return '<h1>Project Server</h1>'
-
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
